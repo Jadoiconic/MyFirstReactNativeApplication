@@ -15,7 +15,7 @@ const ButtonComp = ({ label, onPress,containerStyles }: buttonProps) => {
     )
 }
 
-export default ButtonComp
+export default ButtonComp;
 
 const styles = StyleSheet.create({
     root:{
