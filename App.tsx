@@ -1,13 +1,13 @@
 
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import * as reactNative from 'react-native';
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ProductScreen from './src/screens/ProductScreen';
+import ShoppingCartScreen from './src/screens/ShoppingCartScreen';
 // import TestScreen from './src/screens/TestScreen';
 
 
@@ -26,7 +26,8 @@ function App(): JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       {/* <HomeScreen /> */}
-      <ProductScreen />
+      {/* <ProductScreen /> */}
+      <ShoppingCartScreen />
       {/* <TestScreen /> */}
 
  

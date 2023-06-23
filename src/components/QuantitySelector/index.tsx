@@ -5,7 +5,7 @@ import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 
 const QuantitySelector = () => {
-    const [quantity, sertQuantity] = useState(0)
+    const [quantity, sertQuantity] = useState(1)
     const decrease = () => {
         if (quantity > 0) {
             sertQuantity(quantity - 1)
