@@ -8,29 +8,48 @@ import ButtonComp from '../../components/Button';
 
 const ShoppingCartScreen = () => {
 
-    const totalPrice = products.reduce((sumedVlaue,product)=>(
-        sumedVlaue + (product.item.price*product.quantity)
-    ),0)
-    return (
-        <View style={{paddingHorizontal:5,}}>
+    const totalPrice = products.reduce((sumedVlaue, product) => (
+        sumedVlaue + (product.item.price * product.quantity)
+    ), 0)
+    // eslint-disable-next-line react/no-unstable-nested-components
+    const ListHeaderComponent = () => {
+        // eslint-disable-next-line react-native/no-inline-styles
+        return (
             <View>
-                <Text style={{fontSize:18,fontWeight:'bold'}}>SubTotal({products.length} items):
-                    <Text style={{color:'#e47911'}}> ${totalPrice.toFixed(2)}</Text>
-                </Text> 
-                <ButtonComp 
-                    label='Proceed to checkout' 
-                    onPress={()=>console.warn('Go to checkout')}
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>SubTotal({products.length} items):
+                    <Text style={{ color: '#e47911' }}> ${totalPrice.toFixed(2)}</Text>
+                </Text>
+                <ButtonComp
+                    label='Proceed to checkout'
+                    onPress={async () => console.warn('Go to checkout')}
+                    // eslint-disable-next-line react-native/no-inline-styles
                     containerStyles={{
-                        backgroundColor:'#f7e300'
-                    }}/>
+                        backgroundColor: '#f7e300'
+                    }} />
+
+                <View>
+                    <Text>Add a gift for easy returns</Text>
+                </View>
             </View>
+        )
+    }
+    return (
+        <View style={{ paddingHorizontal: 5, }}>
+
             <FlatList
-            data={products}
-            renderItem={({item})=><CartProductItem cartItem={item
-            }/>}
-            keyExtractor={(item)=>item.id}
-            showsVerticalScrollIndicator={false}
-             />
+                data={products}
+                renderItem={({ item }) => <CartProductItem cartItem={item
+                } />}
+                keyExtractor={(item) => item.id}
+                showsVerticalScrollIndicator={false}
+                ListHeaderComponent={ListHeaderComponent}
+
+            // ListFooterComponent={()=>(
+            //     <View>
+            //         <Text>Footer text Content</Text>
+            //     </View>
+            // )}
+            />
         </View>
     )
 };

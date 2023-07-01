@@ -8,6 +8,7 @@ import {
 import HomeScreen from './src/screens/HomeScreen';
 import ProductScreen from './src/screens/ProductScreen';
 import ShoppingCartScreen from './src/screens/ShoppingCartScreen';
+import AddressScreen from './src/screens/AddressScreen';
 // import TestScreen from './src/screens/TestScreen';
 
 
@@ -27,7 +28,8 @@ function App(): JSX.Element {
       />
       {/* <HomeScreen /> */}
       {/* <ProductScreen /> */}
-      <ShoppingCartScreen />
+      {/* <ShoppingCartScreen /> */}
+      <AddressScreen />
       {/* <TestScreen /> */}
 
  

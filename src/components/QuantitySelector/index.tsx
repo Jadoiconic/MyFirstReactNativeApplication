@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1,
         borderColor: '#e3e3e3',
-        width: 130,
+        width: 135,
         justifyContent: 'space-between',
     },
     button: {
