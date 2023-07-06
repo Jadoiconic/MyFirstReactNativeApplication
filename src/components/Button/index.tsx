@@ -3,14 +3,15 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 interface buttonProps {
     label: String;
-    onPress: () => {};
+    onPress: () => void;
     containerStyles: object;
+    textStyle: object;
 }
 
-const ButtonComp = ({ label, onPress,containerStyles }: buttonProps) => {
+const ButtonComp = ({ label, onPress,containerStyles, textStyle }: buttonProps) => {
     return (
         <Pressable onPress={onPress} style={[styles.root,containerStyles]}>
-            <Text style={styles.text}>{label}</Text>
+            <Text style={[styles.text,textStyle]}>{label}</Text>
         </Pressable>
     )
 }

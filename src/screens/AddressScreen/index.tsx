@@ -1,6 +1,9 @@
+/* eslint-disable eslint-comments/no-unused-disable */
+/* eslint-disable eqeqeq */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable jsx-quotes */
 /* eslint-disable prettier/prettier */
+// eslint-disable-next-line eslint-comments/no-unused-disable
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Alert, ScrollView, Text, TextInput, View, KeyboardAvoidingView, Platform } from 'react-native';
 import React, { useState } from 'react';
@@ -28,11 +31,11 @@ const AddressScreen = () => {
     };
     const validatePhone = (): void => {
         if (phone == '') {
-            setPhoneError('You must fill this field!')
+            setPhoneError('You must fill this field!');
             return;
         }
         if (phone.length < 10 || phone.length > 13) {
-            setPhoneError('Invalid Phone number!')
+            setPhoneError('Invalid Phone number!');
             return;
         }
         Alert.alert(`${phone.length}`);
@@ -41,19 +44,20 @@ const AddressScreen = () => {
 
     return (
         <KeyboardAvoidingView
-        behavior={Platform.OS ==='ios'?'padding':'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios'? 70:0}>
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 70 : 0}>
             <ScrollView style={styles.root}>
                 <Picker
                     selectedValue={country}
-                    onValueChange={itemVlaue => setCountry(itemVlaue)}>
+                    onValueChange={itemVlaue => setCountry(itemVlaue)}
+                    >
                     {countries.map((country: { code: any; name: string | undefined }) => (
                         <Picker.Item key={country.code} value={country.code} label={country.name} />
                     ))}
                 </Picker>
                 {/* Full Name */}
                 <View style={styles.row}>
-                    <Text style={styles.title}>Full Name(First and Last name)</Text>
+                    <Text style={styles.title}>Full Name (First and Last name)</Text>
                     <TextInput
                         placeholder="Full Name"
                         style={styles.input}
@@ -70,7 +74,7 @@ const AddressScreen = () => {
                         value={phone}
                         keyboardType="phone-pad"
                         onEndEditing={validatePhone}
-                        onChangeText={(text) => { setPhone(text); setPhoneError('') }}
+                        onChangeText={(text) => { setPhone(text); setPhoneError(''); }}
                     />
                     {phoneError && <Text style={{ color: 'red' }}>{phoneError}</Text>}
                 </View>
@@ -103,7 +107,9 @@ const AddressScreen = () => {
                 <ButtonComp
                     label='Checkout'
                     onPress={onCheckout}
-                    containerStyles={{ backgroundColor: '#f7e300' }} />
+                    // eslint-disable-next-line react-native/no-inline-styles
+                    containerStyles={{ backgroundColor: '#f7e300' }}
+                    textStyle={{undefined}} />
             </ScrollView>
         </KeyboardAvoidingView>
     );

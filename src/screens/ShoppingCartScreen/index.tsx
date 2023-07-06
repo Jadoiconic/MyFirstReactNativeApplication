@@ -5,8 +5,11 @@ import { FlatList, Text, View } from 'react-native';
 import CartProductItem from '../../components/CartProductItem'
 import products from '../../data/cart';
 import ButtonComp from '../../components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 const ShoppingCartScreen = () => {
+
+    const nav = useNavigation();
 
     const totalPrice = products.reduce((sumedVlaue, product) => (
         sumedVlaue + (product.item.price * product.quantity)
@@ -21,11 +24,11 @@ const ShoppingCartScreen = () => {
                 </Text>
                 <ButtonComp
                     label='Proceed to checkout'
-                    onPress={async () => console.warn('Go to checkout')}
+                    onPress={() => { nav.navigate('Address'); } }
                     // eslint-disable-next-line react-native/no-inline-styles
                     containerStyles={{
-                        backgroundColor: '#f7e300'
-                    }} />
+                        backgroundColor: '#f7e300',
+                    }} textStyle={{undefined}} />
 
                 <View>
                     <Text>Add a gift for easy returns</Text>

@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import QuantitySelector from '../QuantitySelector';
+import { useNavigation } from '@react-navigation/native';
 
 interface CartProductItemProps {
     cartItem:{
@@ -22,9 +23,11 @@ interface CartProductItemProps {
     }
 }
 
+
 const CartProductItem = ({ cartItem }:CartProductItemProps) => {
     const {quantity:quantityProp,item} = cartItem;
-    const [quantity,sertQuantity] = useState(quantityProp)
+    const [quantity,sertQuantity] = useState(quantityProp);
+
     return (
         <View style={styles.container}>
             <View style={styles.mainContainer}>

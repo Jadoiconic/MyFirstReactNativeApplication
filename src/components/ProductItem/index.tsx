@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
+import { useNavigation } from '@react-navigation/native';
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Alert, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 interface ProductItemProps {
@@ -17,9 +19,10 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({ items }:ProductItemProps) => {
+    const navigation = useNavigation();
     return (
-        <View style={styles.container}>
-            <View style={styles.mainContainer}>
+        <View  style={styles.container}>
+            <TouchableOpacity onPress = {()=>{navigation.navigate('Product')}} style={styles.mainContainer}>
                 <Image style={styles.image} source={{ uri: items.image}} />
                 <View style={styles.right}>
                     <View>
@@ -50,7 +53,7 @@ const ProductItem = ({ items }:ProductItemProps) => {
                        
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         </View>
     )
 }

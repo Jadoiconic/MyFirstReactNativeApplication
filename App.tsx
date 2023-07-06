@@ -1,17 +1,42 @@
+/* eslint-disable jsx-quotes */
+/* eslint-disable prettier/prettier */
 
 
 import React from 'react';
 import * as reactNative from 'react-native';
+// import 'react-native-gesture-handler';
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+// import TestScreen from './src/screens/TestScreen';
+
 import HomeScreen from './src/screens/HomeScreen';
 import ProductScreen from './src/screens/ProductScreen';
 import ShoppingCartScreen from './src/screens/ShoppingCartScreen';
 import AddressScreen from './src/screens/AddressScreen';
-// import TestScreen from './src/screens/TestScreen';
 
 
+const Stack = createStackNavigator();
+const HomeStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='Home' component={HomeScreen} />
+      <Stack.Screen name='Product' component={ProductScreen} />
+    </Stack.Navigator>
+  );
+};
+
+const CartStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='Cart' component={ShoppingCartScreen} />
+      <Stack.Screen name='Address' component={AddressScreen} />
+    </Stack.Navigator>
+  );
+};
 
 function App(): JSX.Element {
   const isDarkMode = reactNative.useColorScheme() === 'dark';
@@ -19,21 +44,28 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  const Tabs = createMaterialBottomTabNavigator();
+
 
   return (
-    <reactNative.SafeAreaView style={backgroundStyle}>
-      <reactNative.StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      {/* <HomeScreen /> */}
-      {/* <ProductScreen /> */}
-      {/* <ShoppingCartScreen /> */}
-      <AddressScreen />
-      {/* <TestScreen /> */}
+    // <reactNative.SafeAreaView style={backgroundStyle}>
+    //   <reactNative.StatusBar
+    //     barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+    //     backgroundColor={backgroundStyle.backgroundColor}
+    //     style={reactNative.Platform.OS ? '' : 'auto'}
+    //   />
 
- 
-    </reactNative.SafeAreaView>
+    <NavigationContainer>
+      <Tabs.Navigator initialRouteName='CartStack'>
+        <Tabs.Screen name='HomeStack' component={HomeStack} />
+        <Tabs.Screen name='Search' component={()=>(<View><Text>Hello!</Text></View>)} />
+        <Tabs.Screen name='CartStack' component={CartStack} />
+        <Tabs.Screen name='Profile' component={ShoppingCartScreen} />
+      </Tabs.Navigator>
+    </NavigationContainer>
+
+
+    // </reactNative.SafeAreaView>
   );
 }
 
