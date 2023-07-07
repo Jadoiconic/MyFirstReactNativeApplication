@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable jsx-quotes */
 /* eslint-disable prettier/prettier */
 
@@ -17,6 +18,10 @@ import HomeScreen from './src/screens/HomeScreen';
 import ProductScreen from './src/screens/ProductScreen';
 import ShoppingCartScreen from './src/screens/ShoppingCartScreen';
 import AddressScreen from './src/screens/AddressScreen';
+import MoreScreen from './src/screens/TestScreen';
+
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Text } from 'react-native-paper';
 
 
 const Stack = createStackNavigator();
@@ -56,11 +61,34 @@ function App(): JSX.Element {
     //   />
 
     <NavigationContainer>
-      <Tabs.Navigator initialRouteName='CartStack'>
-        <Tabs.Screen name='HomeStack' component={HomeStack} />
-        <Tabs.Screen name='Search' component={()=>(<View><Text>Hello!</Text></View>)} />
-        <Tabs.Screen name='CartStack' component={CartStack} />
-        <Tabs.Screen name='Profile' component={ShoppingCartScreen} />
+      <Tabs.Navigator
+         initialRouteName='CartStack'
+         activeColor='red'
+         inactiveColor='green'
+         >
+        <Tabs.Screen name='HomeStack' component={HomeStack} 
+        options={{
+          tabBarIcon:({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
+          tabBarLabel:'Home',
+        }}
+        />
+        <Tabs.Screen name='Profile' component={ShoppingCartScreen} 
+        options={{
+          tabBarIcon:({color})=>(<MaterialCommunityIcons name='account' size={26} color={color} />),
+        }}
+        />
+        <Tabs.Screen name='CartStack' component={CartStack}
+        options={{
+          tabBarIcon:({color})=>(<MaterialCommunityIcons name='cart' size={26} color={color} />),
+          tabBarBadge:10,
+          tabBarLabel:'Cart',
+        }} />
+        <Tabs.Screen name='More' component={MoreScreen}
+        options={{
+          tabBarIcon:({color})=>(<MaterialCommunityIcons name='more' size={26} color={color} />),
+        }} />
       </Tabs.Navigator>
     </NavigationContainer>
 

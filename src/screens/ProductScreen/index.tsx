@@ -14,7 +14,6 @@ import ImageCousel from '../../components/ImageCousel';
 
 const ProductScreen = () => {
     const [selectedValue, setSelectedValue] = useState(product.options[0] ? product.options[0] : null);
-    console.warn(selectedValue)
 
     return (
         <View>
@@ -41,8 +40,8 @@ const ProductScreen = () => {
             <Text style={styles.description}>{product.description} </Text>
             <QuantitySelector />
             <View>
-                <ButtonComp label='Add to Cart' onPress={() => { }} containerStyles={{backgroundColor:'#e3c905'}} />
-                <ButtonComp label='Buy Now' onPress={() => { }} containerStyles={{backgroundColor:'#e47900'}}/>
+                <ButtonComp label='Add to Cart' onPress={() => { } } containerStyles={{ backgroundColor: '#e3c905' }} textStyle={({undefined})} />
+                <ButtonComp label='Buy Now' onPress={() => { } } containerStyles={{ backgroundColor: '#e47900' }} textStyle={{undefined}}/>
 
             </View>
             </ScrollView>

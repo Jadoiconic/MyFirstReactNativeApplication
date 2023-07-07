@@ -23,7 +23,7 @@ const ShoppingCartScreen = () => {
                     <Text style={{ color: '#e47911' }}> ${totalPrice.toFixed(2)}</Text>
                 </Text>
                 <ButtonComp
-                    label='Proceed to checkout'
+                    label="Proceed to checkout"
                     onPress={() => { nav.navigate('Address'); } }
                     // eslint-disable-next-line react-native/no-inline-styles
                     containerStyles={{

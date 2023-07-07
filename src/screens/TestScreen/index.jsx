@@ -22,10 +22,10 @@ const testData = ({item}) => {
 
 
 
-const TestScreen = () => {
+const MoreScreen = () => {
 
 return (
-    <View>
+    <View style={styles.container}>
         <TextInput
         
         onChangeText={()=>{}}
@@ -77,6 +77,12 @@ return (
 )
 }
 
-export default TestScreen
+export default MoreScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        flexx:1,
+        marginTop:40,
+        marginHorizontal:10,
+    }
+})
