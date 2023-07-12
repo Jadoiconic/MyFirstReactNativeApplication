@@ -34,7 +34,7 @@ return (
             borderWidth:1,
             borderColor:'teal',
             margin:5,
-            color:'red'
+            color:'red',
         }}
         placeholder='Enter Email Address'
         placeholderTextColor='teal'

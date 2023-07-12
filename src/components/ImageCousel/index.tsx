@@ -1,19 +1,19 @@
+/* eslint-disable no-extra-semi */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable prettier/prettier */
 import { FlatList, Image, StyleSheet,  View, useWindowDimensions } from 'react-native'
 import React, { useCallback, useState } from 'react'
 
 interface imageProps{
-    images:[string];
-}
+    image:string[];
+  };
 
-
-const ImageCousel = ({images}:imageProps) => {
+const ImageCousel = ({ image }:imageProps) => {
   const windowWith = useWindowDimensions().width;
   const [selectedIndex,setSelectedIndex] = useState(0)
 
   const onViewableItemsChangedHandler = useCallback(
-    ({viewableItems}) => {
+    ({viewableItems}:any) => {
       if (viewableItems && viewableItems.length !== 0) {
         setSelectedIndex(viewableItems[0].index);
       }
@@ -22,7 +22,7 @@ const ImageCousel = ({images}:imageProps) => {
   return (
     <View>
       <FlatList 
-      data={images}
+      data={image}
       horizontal
       renderItem={({item})=><Image source={{ uri: item}} style={[styles.image,{width:windowWith-40}]} />} 
       showsHorizontalScrollIndicator={false}
@@ -38,8 +38,8 @@ const ImageCousel = ({images}:imageProps) => {
       onViewableItemsChanged={onViewableItemsChangedHandler}
       />
       <View style={styles.dots}>
-      {images.map((image,index)=>(
-        <View
+      {image.map((image,index)=>(
+        <View key={image}
         style={[styles.dot,{backgroundColor:index === selectedIndex?'#6b6b6b':'#dedede'}]} />
        ))}
       </View>
@@ -47,7 +47,7 @@ const ImageCousel = ({images}:imageProps) => {
   )
 }
 
-export default ImageCousel
+export default ImageCousel;
 
 const styles = StyleSheet.create({
     image:{
@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
     },dots:{
       flexDirection:'row',
       justifyContent:'center',
-    }
-})
+    },
+});
 

@@ -8,6 +8,7 @@ import products from '../../data/products';
 const HomeScreen = () => {
     return (
         <View>
+            
             <FlatList
             data={products}
             renderItem={({item})=><ProductItem items={item

@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
     description:{},
 });
 
-export default styles
+export default styles;

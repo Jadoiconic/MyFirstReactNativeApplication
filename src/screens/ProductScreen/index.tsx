@@ -20,13 +20,13 @@ const ProductScreen = () => {
             <ScrollView>
             <Text numberOfLines={2} style={styles.title}>{product.title}</Text>
 
-            <ImageCousel images={product.images}/>
+            <ImageCousel image={product.images}/>
             <Picker
                 selectedValue={selectedValue}
                 onValueChange={(itemValue) =>
                     setSelectedValue(itemValue)
                 }>
-                {product.options.map((data) => <Picker.Item label={data} value={data} />)}
+                {product.options.map((data) => <Picker.Item key={data} label={data} value={data} />)}
 
             </Picker>
 
