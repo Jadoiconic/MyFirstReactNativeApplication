@@ -1,20 +1,27 @@
 /* eslint-disable prettier/prettier */
-import { StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View,TouchableOpacity } from 'react-native';
 import React from 'react';
 
 import FontAwesame from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
 
 
 const SearchBox = () => {
+  // const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.SearchBox}>
-        <FontAwesame name="search" color="gray" size={26} />
-        <TextInput
-          placeholder="Search..."
-          style={styles.input}
-          placeholderTextColor="gray"
-        />
+        {/* <TouchableOpacity onPress={()=>navigation.goBack()}>
+        <FontAwesame name="arrow-left" color="black" size={30} />
+        </TouchableOpacity> */}
+        <View style={styles.mainComponent}>
+          <FontAwesame name="search" color="gray" size={26} />
+          <TextInput
+            placeholder="Search..."
+            style={styles.input}
+            placeholderTextColor="gray"
+          />
+        </View>
       </View>
     </View>
   );
@@ -30,16 +37,20 @@ const styles = StyleSheet.create({
   },
   SearchBox: {
     marginTop: 39,
-    backgroundColor: 'white',
-    borderRadius: 5,
     flexDirection: 'row',
-    // justifyContent:'center',
-    paddingHorizontal:5,
-    alignItems:'center',
+    alignItems: 'center',
   },
   input: {
     paddingHorizontal: 10,
     paddingVertical: 15,
-    fontSize:20,
+    fontSize: 20,
+  },
+  mainComponent: {
+    borderRadius: 5,
+    backgroundColor: 'white',
+    flexDirection:'row',
+    alignItems:'center',
+    paddingHorizontal: 5,
+    width:'100%',
   },
 });

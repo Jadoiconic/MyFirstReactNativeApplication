@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import QuantitySelector from '../QuantitySelector';
-import { useNavigation } from '@react-navigation/native';
 
 interface CartProductItemProps {
     cartItem:{

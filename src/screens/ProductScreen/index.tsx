@@ -19,7 +19,6 @@ const ProductScreen = () => {
         <View>
             <ScrollView>
             <Text numberOfLines={2} style={styles.title}>{product.title}</Text>
-
             <ImageCousel image={product.images}/>
             <Picker
                 selectedValue={selectedValue}
@@ -27,7 +26,6 @@ const ProductScreen = () => {
                     setSelectedValue(itemValue)
                 }>
                 {product.options.map((data) => <Picker.Item key={data} label={data} value={data} />)}
-
             </Picker>
 
             <View style={styles.priceContainer}>
@@ -35,14 +33,12 @@ const ProductScreen = () => {
                 <Text>$</Text>
                 <Text style={styles.price}>{product.price} </Text>
                 <Text style={styles.oldPrice}>{product.oldPrice ? product.oldPrice : ""}</Text>
-
             </View>
             <Text style={styles.description}>{product.description} </Text>
             <QuantitySelector />
             <View>
                 <ButtonComp label='Add to Cart' onPress={() => { } } containerStyles={{ backgroundColor: '#e3c905' }} textStyle={({undefined})} />
                 <ButtonComp label='Buy Now' onPress={() => { } } containerStyles={{ backgroundColor: '#e47900' }} textStyle={{undefined}}/>
-
             </View>
             </ScrollView>
         </View>

@@ -44,8 +44,8 @@ const ImageCousel = ({ image }:imageProps) => {
        ))}
       </View>
     </View>
-  )
-}
+  );
+};
 
 export default ImageCousel;
 
