@@ -17,7 +17,6 @@ import AddressScreen from './src/screens/AddressScreen';
 import MoreScreen from './src/screens/TestScreen';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { SafeAreaView } from 'react-native';
 import SearchBox from './src/components/SearchBox';
 
 
@@ -79,11 +78,9 @@ function App(): JSX.Element {
     );
   }
   return (
-    // <SafeAreaView style={{ flex: 1 }}>
       <NavigationContainer>
         <RootTabs />
       </NavigationContainer>
-    // </SafeAreaView>
   );
 }
 
